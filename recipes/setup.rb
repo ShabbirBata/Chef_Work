@@ -10,10 +10,9 @@ package 'ntp' do
   action :install
 end
 
-file '/etc/motd' do
-  content 'This machine is property of Shabbir Bata'
-  owner 'root'
-  group 'root'
+template '/etc/motd' do
+  source 'motd.erb'
+  action :create
 end
 
 service 'ntpd' do
